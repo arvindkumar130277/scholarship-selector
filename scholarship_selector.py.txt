@@ -1,0 +1,56 @@
+import json
+
+# Sample scholarships data (this could be replaced with a real database or API in a full app)
+scholarships_data = [
+    {"name": "Harvard University Scholarship", "field": "Engineering", "location": "USA", "requirements": "Undergraduate"},
+    {"name": "Oxford International Scholarship", "field": "Law", "location": "UK", "requirements": "Postgraduate"},
+    {"name": "MIT Scholarship for Technology", "field": "Technology", "location": "USA", "requirements": "Undergraduate"},
+    {"name": "UNESCO Fellowship", "field": "Environmental Studies", "location": "Global", "requirements": "PhD"},
+    {"name": "Commonwealth Scholarship", "field": "Business", "location": "Commonwealth Countries", "requirements": "Postgraduate"}
+]
+
+def get_user_input():
+    print("Welcome to the Scholarship Selection Tool!")
+    field_of_study = input("Enter your field of study (e.g., Engineering, Law, Technology): ").strip()
+    education_level = input("Enter your education level (e.g., Undergraduate, Postgraduate, PhD): ").strip()
+    location = input("Enter your preferred location (e.g., USA, UK, Global): ").strip()
+    
+    return {
+        "field": field_of_study,
+        "education_level": education_level,
+        "location": location
+    }
+
+def filter_scholarships(user_profile):
+    matching_scholarships = []
+    for scholarship in scholarships_data:
+        if (scholarship['field'].lower() == user_profile['field'].lower() and
+            scholarship['requirements'].lower() == user_profile['education_level'].lower() and
+            (user_profile['location'].lower() == 'global' or scholarship['location'].lower() == user_profile['location'].lower())):
+            matching_scholarships.append(scholarship)
+    
+    return matching_scholarships
+
+def display_scholarships(matching_scholarships):
+    if matching_scholarships:
+        print("\nWe found the following scholarships for you:")
+        for scholarship in matching_scholarships:
+            print(f"- {scholarship['name']} ({scholarship['field']}, {scholarship['location']})")
+    else:
+        print("\nSorry, no scholarships match your profile.")
+
+def save_user_profile(user_profile):
+    with open("user_profile.json", "w") as file:
+        json.dump(user_profile, file)
+    print("Your profile has been saved!")
+
+def main():
+    user_profile = get_user_input()
+    matching_scholarships = filter_scholarships(user_profile)
+    display_scholarships(matching_scholarships)
+    save_choice = input("\nWould you like to save your profile for future use? (yes/no): ").strip().lower()
+    if save_choice == "yes":
+        save_user_profile(user_profile)
+
+if __name__ == "__main__":
+    main()
