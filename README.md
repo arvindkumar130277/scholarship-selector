@@ -1,6 +1,20 @@
 # scholarship-selector
 The tool will use predefined criteria to match scholarships to the user's profile. For more details you can visit https://digitalgujaratscholarships.com/
-Explanation of the Code:
+# Scholarship Selector Tool
+This is a Python-based tool designed to help users find scholarships based on their field of study, education level, and location preferences.
+## Features:
+- Matches scholarships based on your profile.
+- Allows you to save your profile for future use.
+- Simple and easy to use.
+## How to Use:
+1. Clone this repository:
+2. Run the tool:
+3. Enter your field of study, education level, and location to find matching scholarships.
+## Contribute:
+Feel free to fork the repository and submit pull requests for improvements or new features!
+## License:
+MIT License
+## Explanation of the Code:
 scholarships_data: A list of scholarships with information like name, field of study, location, and eligibility requirements. In a real-world scenario, you could replace this with data from a database or API.
 get_user_input: This function collects basic information about the user’s field of study, education level, and location preferences.
 filter_scholarships: Filters the scholarships based on the user profile.
