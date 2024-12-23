@@ -7,8 +7,8 @@ This is a Python-based tool designed to help users find scholarships based on th
 - Allows you to save your profile for future use.
 - Simple and easy to use.
 ## How to Use:
-1. Clone this repository:
-2. Run the tool:
+1. Clone this repository:https://github.com/arvindkumar130277/scholarship-selector.git
+2. Run the tool: cd scholarship-selector and run Python scholarship_selector.py
 3. Enter your field of study, education level, and location to find matching scholarships.
 ## Contribute:
 Feel free to fork the repository and submit pull requests for improvements or new features!
